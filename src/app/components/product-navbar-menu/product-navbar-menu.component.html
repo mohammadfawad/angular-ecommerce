@@ -1,0 +1,33 @@
+<!-- Navbar start -->
+<nav class="navbar navbar-expand-lg   navbar-dark bg-dark navbar-fixed-top" style="margin-bottom: 0%;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="assets/images/logo.ico" alt="onlineshop" class="img-responsive"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+  
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">Home</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#">Featured Products</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#">Daily Deals</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#">weekly Deal</a> </li>
+  
+          <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false">Product Catagories </a>
+  
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+  
+              <li *ngFor="let productCategory of productCategories">
+                <a class="dropdown-item" routerLink="/category/{{productCategory.id}}" routerLinkActive="active">{{productCategory.categoryName}}</a>
+                <hr class="dropdown-divider">
+            </li>
+  
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar end -->

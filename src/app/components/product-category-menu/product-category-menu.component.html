@@ -1,0 +1,19 @@
+<!-- MENU SIDEBAR-->
+<div class="menu-sidebar-content js-scrollbar1">
+    <nav class="navbar-sidebar">
+      <ul class="list-unstyled navbar-list">
+
+        <li>
+          <h6>Product Catagories</h6>
+          <hr class="dropdown-divider">
+        </li>
+      
+        <li *ngFor="let productCategory of productCategories">
+          <a routerLink="/category/{{productCategory.id}}" routerLinkActive="active-link">{{productCategory.categoryName}}</a>
+          <hr class="dropdown-divider">
+      </li>
+
+      </ul>
+    </nav>
+  </div>
+  <!-- END MENU SIDEBAR-->
