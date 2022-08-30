@@ -16,6 +16,7 @@ export class ProductListComponent implements OnInit {
   previousCategoryId: number = 1;
   searchMode: boolean = false;
   theKeyword: any;
+  theKeywordPrevious: string = "";
 
   //Pagination Properties
   thePageNumber: number = 1;
@@ -36,7 +37,7 @@ export class ProductListComponent implements OnInit {
 
     if (this.searchMode) {
       this.theKeyword = this.route.snapshot.paramMap.get('keyword');
-      this.searchProductByNameContaining(this.thePageNumber - 1, this.thePageSize, this.theKeyword);
+      this.searchProductByNameContainingPaginate();
     } else {
       this.getProductList();
     }
@@ -45,59 +46,61 @@ export class ProductListComponent implements OnInit {
   getProductList() {
 
     this.hasCategoryId = this.route.snapshot.paramMap.has('id');
-
     if (this.hasCategoryId) {
       this.currentCategoryId = Number(this.route.snapshot.paramMap.get('id'));
     } else {
       this.currentCategoryId = 1;
     }
-
     //Product category changed
     // compare Current and Previous catagory ID, if category changed then set page to 1
     if (this.previousCategoryId != this.currentCategoryId) {
       this.thePageNumber = 1;
     }
     this.previousCategoryId = this.currentCategoryId;
-
     //console.log(`currentCategoryId=${this.currentCategoryId}, thePageNumber=${this.thePageNumber}`);
-    
-    this. getProductListPaginate(this.thePageNumber - 1, this.thePageSize, this.currentCategoryId);    
+    this.getProductListPaginate(this.thePageNumber - 1, this.thePageSize, this.currentCategoryId);
 
-  } 
+  }
 
   getAllPoductsList() {
     this.productService.getProductList().subscribe((responseData) => { this.productList = responseData });
   }
+
   getSearchedPoductsList(categoryId: number) {
     this.productService.getProductSearchList(categoryId).subscribe((responseData) => { this.productList = responseData });
   }
-  searchProductByNameContaining(thePage: number, thePageSize: number, theKeyword:any) {
-    this.theKeyword = this.route.snapshot.paramMap.get('keyword');
-    this.productService.searchByProductNameContainingPaginate(thePage, thePageSize, theKeyword).subscribe(
-      (data) => {
-        this.productList = data._embedded.products;
-        this.thePageNumber = data.page.number + 1; //Angular pagination starts from 1: SpringBoot Pagination Starts from 0:
-        this.thePageSize = data.page.size;
-        this.theTotalElements = data.page.totalElements; //console.log("theTotalElements = " + data.page.totalElements );
-      }
-    );
+
+  searchProductByNameContainingPaginate() {
+    const thekeywordLocal: string = this.theKeyword;
+    //Search keyword Changed : compare Current and Previous Keyword, if Keyword changed then set page to 1
+    if (this.theKeywordPrevious != thekeywordLocal) { 
+      this.thePageNumber = 1;
+      console.log(' Inside : this.theKeywordPrevious != thekeywordLocal & this.thePageNumber = ' + this.thePageNumber);
+    }
+    console.log('this.theKeywordPrevious = ' + this.theKeywordPrevious + ' thekeywordLocal = ' + thekeywordLocal + ' this.theKeyword = ' + this.theKeyword );
+    this.theKeywordPrevious = thekeywordLocal;
+    this.productService.searchByProductNameContainingPaginate(this.thePageNumber - 1, this.thePageSize, this.theKeyword).subscribe(this.processedResults());
   }
+
   getProductListPaginate(thePage: number, thePageSize: number, theCategoryId: number) {
-    this.productService.getProductListPaginate(thePage, thePageSize, theCategoryId).subscribe(
-      (data) => {
-        this.productList = data._embedded.products;
-        this.thePageNumber = data.page.number + 1; //Angular pagination starts from 1: SpringBoot Pagination Starts from 0:
-        this.thePageSize = data.page.size;
-        this.theTotalElements = data.page.totalElements; //console.log("theTotalElements = " + data.page.totalElements );
-      }
-    );
+    this.productService.getProductListPaginate(thePage, thePageSize, theCategoryId).subscribe(this.processedResults());
   }
-  updatePageSize(myPageSelect:string){
+
+  updatePageSize(myPageSelect: string) {
     this.thePageSize = Number(myPageSelect);
     this.thePageNumber = 1;
     this.listProducts();
   }
-  
+
+  processedResults() {
+    return (data: any) => {
+      this.productList = data._embedded.products;
+      this.thePageNumber = data.page.number + 1; //Angular pagination starts from 1: SpringBoot Pagination Starts from 0:
+      this.thePageSize = data.page.size;
+      this.theTotalElements = data.page.totalElements; //console.log("theTotalElements = " + data.page.totalElements );
+    }
+  }
+
 
 }
 

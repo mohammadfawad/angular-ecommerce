@@ -30,7 +30,7 @@ export class ProductService {
   //Products List with Pagination
   getProductListPaginate(thePage:number, thePageSize:number, theCategoryId:number ): Observable<GetResponseProducts>{
     //http://localhost:8082/api/products/search/findByCategoryId?id=2&page=0&size=5
-    const searchUrl = `${this.paginationUrl} ${theCategoryId}`
+    const searchUrl = `${this.paginationUrl}${theCategoryId}`
                     + `&page=${thePage}&size=${thePageSize}`; 
     console.log(searchUrl);
     return this.httpClient.get<GetResponseProducts>(searchUrl);
@@ -39,7 +39,7 @@ export class ProductService {
   //search By Product Name with Pagination
   searchByProductNameContainingPaginate(thePage:number, thePageSize:number, thekeyWord: string): Observable<GetResponseProducts>{
     //http://localhost:8082/api/products/search/findByNameContaining?name=mug&page=0&size=12
-    const searchUrl = `${this.searchByProductNameContainingUrl} ${thekeyWord}`
+    const searchUrl = `${this.searchByProductNameContainingUrl}${thekeyWord}`
                     + `&page=${thePage}&size=${thePageSize}`; 
     console.log(searchUrl);
     return this.httpClient.get<GetResponseProducts>(searchUrl);
