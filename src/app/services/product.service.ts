@@ -10,7 +10,7 @@ import { ProductCategory } from '../common/product-category';
 })
 export class ProductService {
 
-
+//Note : Always use const variable for All URL's inside Function to avoid String Additions in Base urls Declared Globally
   private productUrl: string;
   private searchUrl: string;
   private productCategoryUrl: string;
@@ -28,18 +28,24 @@ export class ProductService {
   }
 
   getProductListPaginate(thePage:number, thePageSize:number, theCategoryId:number ): Observable<GetResponseProducts>{
-    this.paginationUrl = this.paginationUrl + theCategoryId + '&page=' + thePage + '&size=' + thePageSize;
-    return this.httpClient.get<GetResponseProducts>(this.paginationUrl);
+    //http://localhost:8082/api/products/search/findByCategoryId?id=2&page=0&size=5
+    //this.paginationUrl = this.paginationUrl + theCategoryId + '&page=' + thePage + '&size=' + thePageSize;
+    const searchUrl = `${this.paginationUrl} ${theCategoryId}`
+                    + `&page=${thePage}&size=${thePageSize}`; 
+    console.log(searchUrl);
+    return this.httpClient.get<GetResponseProducts>(searchUrl);
   }
 
   getProductById(theProductId: number): Observable<Product> {
+    const searchUrl = this.searchProductById + theProductId;
     return this.httpClient
-      .get<Product>(this.searchProductById + theProductId);
+      .get<Product>(searchUrl);
   }
-
+//Pagination required in search 
   searchByProductNameContaining(thekeyWord: string): Observable<Product[]> {
+    const searchUrl = this.searchByProductNameContainingUrl + thekeyWord;
     return this.httpClient
-      .get<GetResponseProducts>(this.searchByProductNameContainingUrl + thekeyWord)
+      .get<GetResponseProducts>(searchUrl)
       .pipe(
         map(
           (response: { _embedded: { products: any } }) =>
@@ -49,8 +55,9 @@ export class ProductService {
   }
 
   getProductCategories(): Observable<ProductCategory[]> {
+    const searchUrl = this.productCategoryUrl;
     return this.httpClient
-      .get<GetResponseProductCategory>(this.productCategoryUrl)
+      .get<GetResponseProductCategory>(searchUrl)
       .pipe(
         map(
           (response: { _embedded: { productCategory: any } }) =>
@@ -60,8 +67,9 @@ export class ProductService {
   }
 
   getProductList(): Observable<Product[]> {
+    const searchUrl = this.productUrl;
     return this.httpClient
-      .get<GetResponseProducts>(this.productUrl)
+      .get<GetResponseProducts>(searchUrl)
       .pipe(
         map(
           (response: { _embedded: { products: any } }) =>
@@ -71,8 +79,9 @@ export class ProductService {
   }
 
   getProductSearchList(theCategoryId: number): Observable<Product[]> {
+    const searchUrl = this.searchUrl + theCategoryId;
     return this.httpClient
-      .get<GetResponseProducts>(this.searchUrl + theCategoryId)
+      .get<GetResponseProducts>(searchUrl)
       .pipe(
         map(
           (response: { _embedded: { products: any } }) =>
@@ -82,7 +91,8 @@ export class ProductService {
   }
 
   getAllProducts(): Observable<any[]> {
-    return this.httpClient.get<any[]>(this.productUrl);
+    const searchUrl = this.productUrl;
+    return this.httpClient.get<any[]>(searchUrl);
   }
 
 
@@ -97,7 +107,7 @@ interface GetResponseProducts {
     totalElements : number,
     totalPages : number,
     number : number
-  };
+  }
 }
 interface GetResponseProductCategory {
   _embedded: {
