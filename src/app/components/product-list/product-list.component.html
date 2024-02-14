@@ -5,32 +5,55 @@
       <div class="row">
 
         <!-- Loop collection of products Start-->
-        <div class="col-md-3" *ngFor="let product of productList">
+
+        <!-- Style Box View start -->
+        <!-- <div class="col-md-3" *ngFor="let product of productList">
+
           <div class="product-box">
-
-            <a routerLink="/products/{{product.id}}"> <img src="{{product.imageUrl}}" class="img-responsive"> </a>
-
-            <a routerLink="/products/{{product.id}}">
-              <h1> {{product.name}} </h1>
-            </a>
-
+            <a routerLink="/products/{{product.id}}"> <img src="{{product.imageUrl}}" class="img-responsive zoom"> </a>
+            <a routerLink="/products/{{product.id}}"><h1 class="name"> {{product.name}} </h1></a>
             <h2>{{ product.description }}</h2>
-
             <div class="price">{{product.unitPrice | currency : 'PKR' : ' Rs '}}</div>
+            <button class="btn buttonProperty" (click)="addToCart(product)">Add to cart</button>
+          </div>
+         
+        </div> -->
+        <!-- Style Box View End-->
 
-            <a href="#" class="primary-btn">Add to cart</a>
-
+        <!-- Style Tile View start --> <!-- <img src="../../../assets/images/webimages/pngwing41.png" class="zoom"> -->
+        <div class="wrapper">
+          <div class="product textJustify" *ngFor="let product of productList">
+            <a routerLink="/products/{{product.id}}">
+              <img src="{{product.imageUrl}}" alt="Image not Found !" class="zoom imgSize">
+             
+              
+            </a>
+            <a routerLink="/products/{{product.id}}">
+              <h4 class="product-name text-muted text-capitalize">{{product.name}}</h4>
+            </a>
+              <h6 class="text-muted">{{ product.description }}</h6>
+            
+            <div class="textColorOrigional text-decoration-line-through divCenter">{{product.unitPrice + (product.unitPrice * 0.33) |
+                    currency : 'PKR' : ' Rs '}}</div>
+            <div class="textColorPrice text-muted divCenter ">{{product.unitPrice | currency : 'PKR' : ' Rs '}}</div> 
+                  
+           
+            <button (click)="addToCart(product)" class="btn btn-buy">Add to cart</button>
           </div>
         </div>
+        <!-- Style Tile View End-->
+
         <!-- Loop collection of products End-->
 
         <!-- Product Not Found Start -->
-        <div *ngIf="productList?.length == 0" class="pageNotFound">
-          <img src="../../../assets/images/pageNotFound.png" width="700px" height="500px"
+        <div *ngIf="productList?.length == 0">
+          <!-- <img src="../../../assets/images/pageNotFound.png" width="700px" height="500px"
             style="display: block; margin-left: auto; margin-right: auto">
           <button class="au-btn-submit btn btn-dark btn-outline-warning" type="submit" routerLink="/products"
-            style="display: block; margin-left: auto; margin-right: auto"> Back </button>
+            style="display: block; margin-left: auto; margin-right: auto"> Back </button> -->
+          <app-page-not-found></app-page-not-found>
         </div>
+
         <!-- Product Not Found End -->
 
         <!-- Pagination Start -->
@@ -39,12 +62,8 @@
             <div class="col-md-6">
               <div class="col-md-9" style="padding-left: 30%;">
                 <!-- Pagination Controls -->
-                <ngb-pagination [(page)]="thePageNumber" 
-                                [pageSize]="thePageSize" 
-                                [maxSize]="5"
-                                [boundaryLinks]="true"
-                                [collectionSize]="theTotalElements" 
-                                (pageChange)="listProducts()">
+                <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize" [maxSize]="5" [boundaryLinks]="true"
+                  [collectionSize]="theTotalElements" (pageChange)="listProducts()">
                 </ngb-pagination>
                 <!-- Pagination Controls -->
               </div>
@@ -54,7 +73,7 @@
               <div class="col-md-3 mt-2" style=" text-align: right;">
                 <span class="mr-2"> Page Size</span>
                 <select #myPageSelect (change)="updatePageSize(myPageSelect.value)">
-                  <option selected = "true">12</option>
+                  <option selected="true">12</option>
                   <option>24</option>
                   <option>32</option>
                   <option>44</option>
@@ -62,15 +81,23 @@
                 </select>
               </div>
               <!-- Page Size Select  -->
-              
+
             </div>
           </div>
         </div>
         <!-- Pagination End -->
 
-        
+
 
       </div>
     </div>
-  </div><br/>
+    <!-- <app-product-tiled-view></app-product-tiled-view> -->
+
+    <!-- Test -->
+
+
+
+    <!-- Test -->
+
+  </div><br />
   <!-- Product List Component End -->

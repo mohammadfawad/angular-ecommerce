@@ -1,0 +1,10 @@
+.nevigationBar{
+     margin-bottom: 0%; 
+     margin-top: 0%; 
+     /* background-color:  #00796B   ; */
+     /* background-color: #C0C0C0; */
+     /* background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(250, 132, 13)); */
+     background-image: linear-gradient(to right, rgba(91, 88, 88, 0), rgb(63, 62, 60));
+     color: white; 
+     
+}

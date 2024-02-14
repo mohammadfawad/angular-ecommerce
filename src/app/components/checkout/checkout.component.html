@@ -1,0 +1,62 @@
+<div class="section-content section-content-p30 ">
+    <div class="col-9 container-fluid  ">
+
+        <div class=" paymentOption" *ngIf="totalQuantity > 0">
+            <div class=" form-check margin form-area ">
+                <h3>Select Payment Method</h3>
+
+                <div class="container ">
+                    <div class="row">
+                        <div class="col">
+                            <input class="form-check-input" type="radio" name="paymentMode" id="paymentMode"
+                                value="cashOnDelivery" (change)="selectPayMode($event)">
+                            <label class="form-check-label" for="paymentMode">Cash On Delivery</label>
+                        </div>
+                        <div class="col">
+                            <input class="form-check-input" type="radio" name="paymentMode" id="paymentMode"
+                                value="jazzCashMwellet" (change)="selectPayMode($event)">
+                            <label class="form-check-label" for="paymentMode">Jazz Cash Mobile
+                                Account</label>
+                        </div>
+                        <div class="col">
+                            <div class="col col-auto">
+                                <input class="form-check-input" type="radio" name="paymentMode" id="paymentMode"
+                                    value="stripe" (change)="selectPayMode($event)">
+                                <label class="form-check-label" for="paymentMode">Stripe</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row col-12 paymentOption textAlign" *ngIf="totalQuantity === 0">
+            <h5>Cart is Empty !</h5>
+        </div>
+    </div>
+
+    <!-- Components To Display Start -->
+
+    <div class="center" id="cashOnDelivery" *ngIf="paymentMethodSelected == 'cashOnDelivery'">
+        <app-cash-on-delivery></app-cash-on-delivery>
+    </div>
+    
+    <div class="center" id="jazzCashMwellet" *ngIf="paymentMethodSelected == 'jazzCashMwellet'">
+        <h6 class="textAlign"> In Progress ! Will be integrated Soon.</h6>
+        <!-- <app-jazz-payment></app-jazz-payment> -->
+    </div>
+    
+    <div class="center" id="stripe" *ngIf="paymentMethodSelected == 'stripe'">
+        <h6 class="textAlign"> In Progress ! Will be integrated Soon.</h6>
+        <!-- <app-stripe-payment></app-stripe-payment> -->
+    </div>
+
+    <!-- Components To Display End -->
+
+</div>
+
+
+
+
+
+

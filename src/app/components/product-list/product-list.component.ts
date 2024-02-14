@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CartItem } from 'src/app/common/cart-item';
 import { Product } from 'src/app/common/product';
+import { CartServiceService } from 'src/app/services/cart-service.service';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -24,7 +26,7 @@ export class ProductListComponent implements OnInit {
   theTotalElements: number = 0;
 
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) { }
+  constructor(private productService: ProductService, private route: ActivatedRoute, private cartService: CartServiceService) { }
 
   ngOnInit(): void {
 
@@ -49,10 +51,10 @@ export class ProductListComponent implements OnInit {
     if (this.hasCategoryId) {
       this.currentCategoryId = Number(this.route.snapshot.paramMap.get('id'));
     } else {
-      this.currentCategoryId = 1;
+      //this.currentCategoryId = 1;
+      this.currentCategoryId = 8;
     }
-    //Product category changed
-    // compare Current and Previous catagory ID, if category changed then set page to 1
+    //Product category changed : compare Current and Previous catagory ID, if category changed then set page to 1
     if (this.previousCategoryId != this.currentCategoryId) {
       this.thePageNumber = 1;
     }
@@ -99,6 +101,15 @@ export class ProductListComponent implements OnInit {
       this.thePageSize = data.page.size;
       this.theTotalElements = data.page.totalElements; //console.log("theTotalElements = " + data.page.totalElements );
     }
+  }
+
+  addToCart(product:Product){
+    //alert( " Product Name : " + product.name + ", Unit Price :" + product.unitPrice);
+    //Instantiated CartItem class
+    const theCartItem = new CartItem(product);
+    // Call to cartService to add product
+    this.cartService.addToCart(theCartItem);
+
   }
 
 

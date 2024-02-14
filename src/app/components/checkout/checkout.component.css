@@ -1,0 +1,29 @@
+.order{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+.paymentOption{
+    margin-top: 5%;
+    margin-left: 5%;
+}
+
+.textAlign{
+    text-align: center;
+    align-self: center;
+    margin: 1% 1% 1% 1%;
+}
+
+.margin{
+    margin: 2% 2% 2% 2%;
+}
+
+.backColor{
+    background-image: linear-gradient(to right, rgba(91, 88, 88, 0), rgb(63, 62, 60));
+}
+
+.center {
+    margin: auto;
+
+    width: 80%;
+}

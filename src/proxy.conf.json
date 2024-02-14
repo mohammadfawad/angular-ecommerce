@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://sandbox.jazzcash.com.pk/ApplicationAPI/API/Payment/DoTransaction",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

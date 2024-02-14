@@ -1,0 +1,48 @@
+
+<div class="main-content">
+    <div class="section-content section-content-p30">
+      <div class="container-fluid"> 
+            <!-- Order History Table Start-->
+            <div *ngIf="orderHistoryList.length > 0">
+                <h3>Your Orders </h3>
+                <table class="table table-sm" style="text-align: center ;">
+                    <thead class=" tableHeadColor"> 
+                        <tr style="font-size: 20px;">
+                            <th width="30%" > Order Tracking Number</th> 
+                            <th width="20%" > Total Price</th>
+                            <th width="20%" > Total Quantity</th>
+                            <th width="30%" > Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-secondary" *ngFor="let tempOrderHistoryItem of orderHistoryList">
+                        <td width="30%">
+                                {{tempOrderHistoryItem.orderTrackingNumber}}
+                            </td>
+                            <td width="20%">
+                                {{tempOrderHistoryItem.totalPrice | currency: ' Rs '}}
+                            </td>
+                            <td width="20%">
+                                {{tempOrderHistoryItem.totalQuantity}}
+                            </td>
+                            <td width="30%">
+                                {{tempOrderHistoryItem.dateCreated | date: 'medium' }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div *ngIf="orderHistoryList.length === 0">
+                <table class="table table-sm" style="text-align: center ;">
+                    <thead class=" tableHeadColor"> 
+                        <tr style="font-size: 20px;">
+                            <th width="100%" > Previous Orders History Data Is Not available</th> 
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <!-- Order History Table Start -->
+        </div>
+    </div>
+</div>

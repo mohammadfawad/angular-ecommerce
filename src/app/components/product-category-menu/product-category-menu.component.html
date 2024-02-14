@@ -4,13 +4,13 @@
       <ul class="list-unstyled navbar-list">
 
         <li>
-          <h6>Product Catagories</h6>
-          <hr class="dropdown-divider">
+          <h4>Product Catagories</h4>
+          <hr>
         </li>
       
         <li *ngFor="let productCategory of productCategories">
           <a routerLink="/category/{{productCategory.id}}" routerLinkActive="active-link">{{productCategory.categoryName}}</a>
-          <hr class="dropdown-divider">
+          <hr>
       </li>
 
       </ul>

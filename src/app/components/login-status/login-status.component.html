@@ -1,0 +1,37 @@
+<!-- <div class="login-status-header">
+    <div class="login-status-user-info textColor" *ngIf="isAuthenticated && userFullName">
+        <b>welcome back {{userFullName}} !</b>
+    </div>
+    <button *ngIf="!isAuthenticated" routerLink="/login" class="btn btn-outline-warning btnSpace">Login</button> 
+    <button *ngIf="isAuthenticated" (click)="logoutUser()" class="btn btn-outline-warning btnSpace">Logout</button> 
+    <button *ngIf="isAuthenticated" routerLink="/members" class="btn btn-outline-warning btnSpace">Members</button> 
+</div> -->
+
+<div class="row col-auto align-self-center">
+    <div class="col col-auto align-self-center">
+        <div class="btn textColor btnSpace " *ngIf="isAuthenticated && userFullName"> <b>welcome! {{userFullName}} </b></div>
+    </div>
+    <div class="col col-auto align-self-center">
+        <button *ngIf="isAuthenticated" (click)="logoutUser()" class="btn btn-outline-warning btnSpace">Logout</button> 
+    </div>
+    <div class="col col-auto align-self-center">
+        <button *ngIf="isAuthenticated" routerLink="/members" class="btn btn-outline-warning btnSpace">Members</button> 
+    </div>
+    <div class="col col-auto align-self-center">
+        <button *ngIf="isAuthenticated" routerLink="/order-history" class="btn btn-outline-warning btnSpace">Orders</button> 
+    </div>
+    <div class="col col-auto align-self-center">
+        <button *ngIf="!isAuthenticated" routerLink="/login" class="btn btn-outline-warning btnSpace">Login</button> 
+    </div>
+    <!-- <div class="col col-auto align-self-center">
+        <a *ngIf="!isAuthenticated" routerLink="/loginGoogle" class="google btn"><i class="bi bi-google"></i>  Login with Google+</a>
+    </div> -->
+</div>
+
+        
+    
+       
+       
+        
+
+    

@@ -1,33 +1,60 @@
-<!-- Navbar start -->
-<nav class="navbar navbar-expand-lg   navbar-dark bg-dark navbar-fixed-top" style="margin-bottom: 0%;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img src="assets/images/logo.ico" alt="onlineshop" class="img-responsive"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+<!-- Secondary NavBar Start -->
   
-          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">Home</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Featured Products</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Daily Deals</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">weekly Deal</a> </li>
+<div class="row nevigationBar" >
+
+  <div class="col-12">
+
+    <nav class="navbar navbar-expand-lg nevigationBar">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
   
-          <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown"
-              role="button" data-bs-toggle="dropdown" aria-expanded="false">Product Catagories </a>
+          <a class="navbar-brand" href="/category/1"><img src="../../../assets/images/logoNiqasay2.ico" alt="onlineshop" class="img-responsive"></a>
   
-            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
   
-              <li *ngFor="let productCategory of productCategories">
-                <a class="dropdown-item" routerLink="/category/{{productCategory.id}}" routerLinkActive="active">{{productCategory.categoryName}}</a>
-                <hr class="dropdown-divider">
+            <li class="nav-item"> <a class="nav-link active" aria-current="page" href="#">Home</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">Featured Products</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">Daily Deals</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">weekly Deal</a> </li>
+            <!-- Cart Start -->
+            <li class="nav-item"> <a class="nav-link" routerLink="/cart-details">View Cart Details</a> </li>
+            <!-- Cart End -->
+           
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Product Categories</a>
+
+              <ul class="dropdown-menu">
+
+                <li class="nav-item" *ngFor="let productCategory of productCategories">
+                  <a class=" dropdown-item  h6" routerLink="/category/{{productCategory.id}}" routerLinkActive="active">{{productCategory.categoryName}}</a>
+                  <hr class="dropdown-divider">
+                </li>
+                
+                
+              </ul>
+
             </li>
+
+           
   
-            </ul>
-          </li>
-        </ul>
+          </ul>
+
+         
+  
+        </div>
       </div>
-    </div>
-  </nav>
-  <!-- Navbar end -->
+    </nav>
+
+  </div>
+
+
+</div>
+
+<!-- Secondary NavBar End -->
+ 
+
+  

@@ -1,83 +1,98 @@
-<!-- HEADER DESKTOP-->
-<header class="header-desktop">
-  <div class="section-content section-content-p30 navbar navbar-dark bg-dark">
-    <div class="container-fluid">
-      <div class="header-wrap navbar-brand">
+<!-- Div body Content Start -->
+<div>
+  <!-- HEADER DESKTOP-->
+  <header class="header-desktop">
+    <div class="section-content section-content-p30 navBackground ">
 
-        <app-search></app-search>
-        
-        <div class="cart-area d-n">
-          <a href="shopping-detail.html">
-            <div class="total " style="margin-left: 15px;">19.22 <span> 2</span> </div> <i
-              class="fa fa-shopping-cart" aria-hidden="true" style="color: #ffbb00;"> </i>
-          </a>
+      <div class="container-fluid ">
+
+        <!-- <div class="account-wrap"></div> -->
+        <!-- Header NavBar New Start -->
+        <div class="col-12">
+
+          <nav class="navbar navbar-expand-lg nevigationBar">
+            <div class="container-fluid ">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse align-self-center col-xl-12 " id="navbarTogglerDemo01">
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+
+                  
+                       <!-- search Start -->
+                       <li class="nav-item align-self-center flex-xxl-fill "> <app-search></app-search> </li>
+                       <!-- search End -->
+                    
+                       <!-- login Start -->
+                       <li class="nav-item align-self-center flex-xxl-fill"> <app-login-status></app-login-status></li>
+                       <!-- <li class="nav-item align-self-center flex-xxl-fill"><app-google-login></app-google-login></li> -->
+                       <!-- login End -->
+                    
+                      <!-- Cart Start -->
+                      <li class="nav-item align-self-center flex-xxl-fill  p-2"><app-cart-status></app-cart-status></li>
+                      <!-- Cart End -->
+                    
+                        
+
+                </ul>
+
+
+              </div>
+            </div>
+          </nav>
+
         </div>
+        <!-- Header NavBar New End -->
+
       </div>
-      <div class="account-wrap"></div>
     </div>
-  </div>
-</header>
-<!-- END HEADER DESKTOP-->
+  </header>
+  <!-- END HEADER DESKTOP-->
 
- <!--START slider-->
+  <div class=" col-xl-12 ">
+    <div class=" col-xl-12 navBackground">
 
- <div id="banner" class="container-fluid banner">
-  <div class="container">
-    <div class="row">
-
-      <div class="col-sm-6">
-        <h1><span>E</span>-SHOPPER</h1>
-        <h2>Online E-Commerce Web Store</h2>
-        <p>
-          One of the best modren e-commerce store helped around a Millions of Customers happily get what they wanted
-          all across the Globe.
-          We delight you with our special prices, offers and deals. We provide massive deals and discounts
-          throughout
-          the year and also have special daily deals
-          that come and go on a daily basis. We also provide our customers with amazing “Slightly Used” products
-          that
-          have been handpicked and thoroughly inspected by our procurement teams to give you the best brands in
-          amazing condition at unbelievable prices.
-        </p>
-        <button type="button" class="btn btn-warning">Get it now</button>
+      <div class="col-xl-12 row ">
+        <!--START slider-->
+        <app-coursel></app-coursel>
+        <!-- END/slider-->
       </div>
-      <div class="col-sm-6">
-        <img style="align-self: flex-end; padding-left: 40%;" src="assets/images/shoppinggirl.png"
-          class="girl img-responsive" alt="" />
-        
+
+      <div class="col-xl-12 row ">
+        <!-- Navbar start -->
+        <app-product-navbar-menu></app-product-navbar-menu>
+        <!-- Navbar end -->
       </div>
 
     </div>
-  </div>
 
+    <div class="col-xl-12 row">
+      <!-- start Main Content-->
+      <router-outlet></router-outlet>
+      <!-- End Main Content -->
+    </div>
+
+    <div class="col-xl-12 row navBackground">
+      <!-- footer  -->
+      <app-footer></app-footer>
+      <!-- footer -->
+    </div>
+
+  </div>
 </div>
-
-<!-- END/slider-->
+<!-- Div body Content End -->
 
 
 <!-- START MENU SIDEBAR-->
-<aside class="menu-sidebar d-none d-lg-block">
+<aside class="menu-sidebar d-none d-lg-block background">
   <div class="logo">
     <a href="#">
-      <img src="assets/images/logo.png" alt="onlineshop" class="img-responsive">
+      <img src="../assets/images/logoNiqasay2.png" alt="onlineshop" class="img-responsive">
     </a>
   </div>
   <app-product-category-menu></app-product-category-menu>
 </aside>
 <!-- END MENU SIDEBAR-->
- 
-<!-- Navbar start -->
-<app-product-navbar-menu></app-product-navbar-menu>
-<!-- Navbar end -->
-
-<!-- start Main Content-->
-<router-outlet></router-outlet>
-<!-- End Main Content -->
-
-<footer>
-  <ul>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Contact Us</a></li>
-    <li><a href="#">Help</a></li>
-  </ul>
-</footer>

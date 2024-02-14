@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Product } from '../common/product';
 import { map } from 'rxjs/operators';
 import { ProductCategory } from '../common/product-category';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -19,17 +20,18 @@ export class ProductService {
   private paginationUrl:string;
 
   constructor(private httpClient: HttpClient) {
-    this.productUrl = 'http://localhost:8082/api/products?size=250';
-    this.searchUrl = 'http://localhost:8082/api/products/search/findByCategoryId?id=';
-    this.productCategoryUrl = 'http://localhost:8082/api/product-category';
-    this.searchByProductNameContainingUrl = 'http://localhost:8082/api/products/search/findByNameContaining?name=';
-    this.searchProductById = 'http://localhost:8082/api/products/';
-    this.paginationUrl = 'http://localhost:8082/api/products/search/findByCategoryId?id=';
+    
+    this.productUrl = environment.niqasayApiBaseUrl+'/products?size=250';
+    this.searchUrl = environment.niqasayApiBaseUrl+'/products/search/findByCategoryId?id=';
+    this.productCategoryUrl = environment.niqasayApiBaseUrl+'/product-category';
+    this.searchByProductNameContainingUrl = environment.niqasayApiBaseUrl+'/products/search/findByNameContaining?name=';
+    this.searchProductById = environment.niqasayApiBaseUrl+'/products/';
+    this.paginationUrl = environment.niqasayApiBaseUrl+'/products/search/findByCategoryId?id=';
   }
 
   //Products List with Pagination
   getProductListPaginate(thePage:number, thePageSize:number, theCategoryId:number ): Observable<GetResponseProducts>{
-    //http://localhost:8082/api/products/search/findByCategoryId?id=2&page=0&size=5
+    //https://localhost:11547/api/products/search/findByCategoryId?id=2&page=0&size=5
     const searchUrl = `${this.paginationUrl}${theCategoryId}`
                     + `&page=${thePage}&size=${thePageSize}`; 
     console.log(searchUrl);
@@ -38,7 +40,7 @@ export class ProductService {
 
   //search By Product Name with Pagination
   searchByProductNameContainingPaginate(thePage:number, thePageSize:number, thekeyWord: string): Observable<GetResponseProducts>{
-    //http://localhost:8082/api/products/search/findByNameContaining?name=mug&page=0&size=12
+    //https://localhost:11547/api/products/search/findByNameContaining?name=mug&page=0&size=12
     const searchUrl = `${this.searchByProductNameContainingUrl}${thekeyWord}`
                     + `&page=${thePage}&size=${thePageSize}`; 
     console.log(searchUrl);
@@ -63,7 +65,7 @@ export class ProductService {
       );
   }
 
-  getProductCategories(): Observable<ProductCategory[]> {
+  getProductCategories(): Observable<ProductCategory[]> { 
     const searchUrl = this.productCategoryUrl;
     return this.httpClient
       .get<GetResponseProductCategory>(searchUrl)

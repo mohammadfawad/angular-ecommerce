@@ -1,0 +1,132 @@
+.price{
+    color: rgb(100, 100, 100);
+    font-size: 18px;
+    font-weight: bold;
+    margin: 1% 1% 1% 1%;
+    
+}
+
+.name{
+    color: rgb(100, 100, 100);
+    font-size: 18px;
+    font-weight: bold;
+    /* margin: 1% 1% 1% 1%; */
+    
+}
+
+.buttonProperty{
+    color: rgb(255, 255, 255);
+    background-color: rgb(116, 116, 116);
+}
+
+.zoom {
+    padding: 1px;
+    /* background-color: rgb(211, 213, 211); */
+    transition: transform .1s; /* Animation */
+    /* width: 500px; */
+    /* height: 500px; */
+    margin: 1% auto;
+  }
+
+  .imgSize{
+    max-height: 400px;
+  }
+  
+  .zoom:hover {
+    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+
+  .textColorOrigional{
+    color: red;
+    text-decoration-color: red;
+    font-size: 18px;
+    margin: 1em 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .textColorPrice{
+    color: rgb(69, 69, 69);
+    text-decoration-color: rgb(69, 69, 69);
+    font-size: 18px;
+    margin: 1em 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .divCenter {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 1%;
+  }
+
+  .textJustify{
+    text-align: justify;
+    text-align: center;
+  }
+
+/* Product Tile View  */
+  /* color-cta: #369; */
+
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+    grid-gap: 1rem;
+    margin: 0.5em;
+   
+}
+
+.product {
+    display: flex;
+    flex-flow: column;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 1em;
+    margin-right: auto;
+
+    /* New To control Size of Alone Product */
+    max-height: 700px;
+    max-width: 400px;
+    
+}
+
+.product:hover {
+    border: 1px solid rgb(174, 174, 174);
+    box-shadow: 0 5px 40px rgba(0, 0, 0, .3);
+}
+
+img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.product-name {
+    margin: 1em 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.btn-buy {
+    cursor: pointer;
+    margin-top: auto;
+    /* display: block; */
+    /* align-self: flex-end; */
+    font-size: 1rem;
+    padding: .8rem 1.5rem;
+    border: 1px solid  rgb(69, 69, 69);
+    background-color:  rgb(69, 69, 69);
+    color: rgb(255, 255, 255);
+}
+
+.btn-buy:hover {
+    border: 1px solid  rgb(167, 166, 166);
+    background-color:rgb(167, 166, 166);
+    color: rgb(255, 255, 255);
+}
+/*Product Tile View */

@@ -1,0 +1,69 @@
+ .price{
+    color: rgb(100, 100, 100);
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0% 0% 1% 0%;
+    
+}
+
+.name{
+    color: rgb(100, 100, 100);
+    font-size: 18px;
+    font-weight: bold;
+    /* margin: 1% 1% 1% 1%; */
+    
+}   
+
+.buttonProperty{
+    color: rgb(255, 255, 255);
+    background-color: rgb(116, 116, 116);
+}
+
+.zoom {
+    padding: 1px;
+    /* background-color: rgb(211, 213, 211); */
+    transition: transform .1s; 
+    /* width: 500px; */
+    /* height: 500px; */
+    margin: 5% auto;
+   } 
+  
+  .zoom:hover {
+    transform: scale(3); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }  
+
+ .divAlign{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  } 
+
+.imageGalleryBackground{
+  /* background-image: linear-gradient(to right, rgba(91, 88, 88, 0.438), rgba(63, 62, 60, 0.449)); */
+
+  /* background-image: linear-gradient(90deg, rgba(121,121,124,0.2819502801120448) 0%, rgba(203,145,79,0) 35%, rgba(112,112,112,0.2539390756302521) 100%); */
+  
+}
+
+.courselindicator{
+  background-color: rgb(62, 62, 62);
+  border-radius: 50%;
+  
+}
+
+.imageAlign{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imgResolution{
+  max-height: 700px;
+  border-radius: 5%;
+}
+

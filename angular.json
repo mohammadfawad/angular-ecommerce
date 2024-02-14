@@ -17,6 +17,14 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "@babel/runtime-corejs3",
+              "cross-fetch",
+              "p-cancelable",
+              "tiny-emitter",
+              "detect-node",
+              "@okta/okta-signin-widget"
+            ],
             "outputPath": "dist/angular-ecommerce",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -27,8 +35,10 @@
               "src/assets"
             ],
             "styles": [
+              "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "node_modules/@okta/okta-signin-widget/dist/css/okta-sign-in.min.css" 
+              
             ],
             "scripts": []
           },
@@ -53,6 +63,14 @@
                 }
               ],
               "outputHashing": "all"
+            }, 
+            "qualityAssurance":{
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.qualityAssurance.ts"
+                }
+              ]
             },
             "development": {
               "buildOptimizer": false,
@@ -73,6 +91,9 @@
             },
             "development": {
               "browserTarget": "angular-ecommerce:build:development"
+            },
+            "qualityAssurance":{
+              "browserTarget": "angular-ecommerce:build:qualityAssurance"
             }
           },
           "defaultConfiguration": "development"
@@ -81,6 +102,7 @@
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "angular-ecommerce:build"
+            
           }
         },
         "test": {

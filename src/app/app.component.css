@@ -1,0 +1,22 @@
+.background{
+    background-color: #d2d2d2;
+}
+
+.navBackground{
+    /* background-color: #555555; */
+    background-image: linear-gradient(to right, rgba(91, 88, 88, 0), rgb(63, 62, 60));
+    
+}
+
+.margins{
+    margin-top: auto;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+}
+
+.alignCenter{
+   
+    display: flex;
+  align-items: center;
+}

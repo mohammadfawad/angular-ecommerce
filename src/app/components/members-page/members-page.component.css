@@ -1,0 +1,6 @@
+.alignCenter{
+    text-align: center;
+    width:100%; 
+    margin: auto;
+    /* background-image: linear-gradient(to right, rgba(91, 88, 88, 0), rgba(63, 62, 60, 0)); */
+}

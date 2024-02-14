@@ -1,13 +1,30 @@
 <!-- HEADER DESKTOP-->
 
+  <!-- <div class="col-auto">
+    <form class="form-header d-flex" onsubmit="" method="GET">
 
-          <form class="form-header d-flex" onsubmit="" method="GET">
+      <input #myinput class="au-input au-input-xl form-control me-2" type="text" name="search" 
+        placeholder="Search for Products" aria-label="Search" (keyup.enter)="searchProducts(myinput.value)" />
 
-            <input #myinput class="au-input au-input-xl form-control me-2" type="text" name="search"
-              placeholder="Search for Products" aria-label="Search" (keyup.enter)="searchProducts(myinput.value)" />
+      <button class="au-btn-submit btn btn-outline-warning text-bg-warning"  type="submit" (click)="searchProducts(myinput.value)" > Search </button>
+    </form>
 
-            <button class="au-btn-submit btn btn-outline-warning" type="submit" (click)="searchProducts(myinput.value)"> Search </button>
-          </form>
+  </div> -->
+  <div class="row col-auto align-self-center">
+    <div class="col col-auto align-self-center">
+      <form class="form-header d-flex" onsubmit="" method="GET">
+        <div class="input-group input-group-lg">
+            <input #myinput class="form-control" type="text" name="search" 
+              placeholder="Search for Products" aria-label="Search" (keyup.enter)="searchProducts(myinput.value)" aria-label="Search for Products" />
+            <button class="btn btn-warning"  type="submit" (click)="searchProducts(myinput.value)" > Search </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+         
 
+
+  
           
   <!-- END HEADER DESKTOP-->
