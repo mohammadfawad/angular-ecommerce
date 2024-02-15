@@ -1,27 +1,26 @@
 <!-- Div body Content Start -->
 <div>
   <!-- HEADER DESKTOP-->
-  <header class="header-desktop">
+  <header class="header-desktop navBackground">
     <div class="section-content section-content-p30 navBackground ">
 
-      <div class="container-fluid ">
+      <!-- <div class="container-fluid "> -->
 
         <!-- <div class="account-wrap"></div> -->
         <!-- Header NavBar New Start -->
-        <div class="col-12">
+        <div class="row col-12 ">
 
-          <nav class="navbar navbar-expand-lg nevigationBar">
+          <nav class="navbar navbar-expand-lg nevigationBar topNavBackground">
             <div class="container-fluid ">
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false"
+                data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse align-self-center col-xl-12 " id="navbarTogglerDemo01">
+              <div class="collapse navbar-collapse align-self-center col-xl-12 " id="navbarToggler">
 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
 
-                  
                        <!-- search Start -->
                        <li class="nav-item align-self-center flex-xxl-fill "> <app-search></app-search> </li>
                        <!-- search End -->
@@ -35,20 +34,35 @@
                       <li class="nav-item align-self-center flex-xxl-fill  p-2"><app-cart-status></app-cart-status></li>
                       <!-- Cart End -->
                     
-                        
-
                 </ul>
-
 
               </div>
             </div>
           </nav>
 
+          <!-- NavBar Off Canvas --> 
+          <!-- <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-4">
+                <app-search></app-search>
+              </div>
+              <div class="col-sm-4">
+                <app-login-status></app-login-status> 
+              </div>
+              <div class="col-sm-4">
+                <app-cart-status></app-cart-status>
+              </div>
+            </div>
+          </div>
+           -->
+   
+          <!-- NavBar Off Canvas -->
+
         </div>
         <!-- Header NavBar New End -->
 
       </div>
-    </div>
+    <!-- </div> -->
   </header>
   <!-- END HEADER DESKTOP-->
 
@@ -89,7 +103,7 @@
 <!-- START MENU SIDEBAR-->
 <aside class="menu-sidebar d-none d-lg-block background">
   <div class="logo">
-    <a href="#">
+    <a href="/products">
       <img src="../assets/images/logoNiqasay2.png" alt="onlineshop" class="img-responsive">
     </a>
   </div>

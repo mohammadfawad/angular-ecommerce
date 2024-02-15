@@ -3,9 +3,14 @@
 }
 
 .navBackground{
-    /* background-color: #555555; */
+    /* background-color: #42975a ; */
     background-image: linear-gradient(to right, rgba(91, 88, 88, 0), rgb(63, 62, 60));
+   
     
+}
+
+.topNavBackground{
+    background-image: linear-gradient(to right,#22ad6a, #216e38);
 }
 
 .margins{
@@ -20,3 +25,7 @@
     display: flex;
   align-items: center;
 }
+
+/* OFF canvas Nav Bar */
+
+/* Off Canvas navbar */

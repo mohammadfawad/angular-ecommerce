@@ -16,7 +16,7 @@
         <div class="input-group input-group-lg">
             <input #myinput class="form-control" type="text" name="search" 
               placeholder="Search for Products" aria-label="Search" (keyup.enter)="searchProducts(myinput.value)" aria-label="Search for Products" />
-            <button class="btn btn-warning"  type="submit" (click)="searchProducts(myinput.value)" > Search </button>
+            <button class="btn btn-warning"  type="submit" (click)="searchProducts(myinput.value)" > <i class="bi bi-search"></i> </button>
         </div>
       </form>
     </div>

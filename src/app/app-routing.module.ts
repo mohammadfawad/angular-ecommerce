@@ -12,6 +12,16 @@ import { LoginComponent } from './components/login/login.component';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { GoogleLoginComponent } from './components/google-login/google-login.component';
+import { CopyrightsComponent } from './components/copyrights/copyrights.component';
+import { StorelocationComponent } from './components/storelocation/storelocation.component';
+import { CareersComponent } from './components/careers/careers.component';
+import { CompanyinfoComponent } from './components/companyinfo/companyinfo.component';
+import { ReturnpolicyComponent } from './components/returnpolicy/returnpolicy.component';
+import { PrivacypolicyComponent } from './components/privacypolicy/privacypolicy.component';
+import { ContactusComponent } from './components/contactus/contactus.component';
+import { OrderconfermationComponent } from './components/orderconfermation/orderconfermation.component';
+import { OrderstatusComponent } from './components/orderstatus/orderstatus.component';
+import { FrequentlyaskedComponent } from './components/frequentlyasked/frequentlyasked.component';
 
 const oktaConfig = applicationConfig.oidc;
 const oktaAuth = new OktaAuth(oktaConfig);
@@ -22,6 +32,16 @@ function sendToLoginPage(oktaAuth:OktaAuth, injector:Injector) {
 }
 
 const routes: Routes = [
+  {path : 'frequentlyasked', component: FrequentlyaskedComponent},
+  {path : 'orderstatus', component: OrderstatusComponent},
+  {path : 'orderconfirmation', component: OrderconfermationComponent},
+  {path : 'contactus', component: ContactusComponent},
+  {path : 'privacypolicy', component: PrivacypolicyComponent},
+  {path : 'returnexchangepolicy', component: ReturnpolicyComponent},
+  {path : 'companyinfo', component: CompanyinfoComponent},
+  {path : 'career', component: CareersComponent},
+  {path : 'storelocation', component: StorelocationComponent},
+  {path : 'copyrights', component: CopyrightsComponent},
   {path: 'order-history', component: OrderHistoryComponent, canActivate: [OktaAuthGuard], data: {onAuthRequired: sendToLoginPage}},
   {path: 'members', component: MembersPageComponent, canActivate: [OktaAuthGuard], data: {onAuthRequired: sendToLoginPage}},
   {path: 'login/callback', component: OktaCallbackComponent},
